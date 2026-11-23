@@ -4,7 +4,7 @@ Sistema web de controle de estoque de **produto acabado** desenvolvido para a Me
 
 ## Objetivo
 
-Substituir controles manuais por um sistema simples, onde a equipe de estoque consegue:
+Substituir controles manuais por um sistema simples, onde a equipe de estoque consegue:  
 
 - cadastrar e consultar os produtos acabados e seus saldos;
 - registrar entradas e saídas de estoque, com atualização automática do saldo;
