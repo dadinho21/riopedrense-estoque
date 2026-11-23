@@ -1,16 +1,24 @@
 # Controle de Estoque — Metalúrgica Riopedrense
 
-Sistema web de controle de estoque de **produto acabado** desenvolvido para a Metalúrgica Riopedrense (fabricante de grelhas para moinho), como projeto do **PIC I — Projeto Integrador** do curso de Ciência da Computação.                            
-                                                                                                                                            
+Sistema web de controle de estoque de **produto acabado** desenvolvido para a Metalúrgica Riopedrense (fabricante de grelhas para moinho), como projeto do **PIC I — Projeto Integrador** do curso de Ciência da Computação.
+
+## Demonstração online
+
+🔗 **[https://mr.softnew.net/](https://mr.softnew.net/)**
+
+Para entrar, use o usuário de demonstração:
+
+- **E-mail:** `admin@riopedrense.com.br`
+- **Senha:** `123456`
+
 ## Objetivo
 
-Substituir controles manuais por um sistema simples, onde a equipe de estoque consegue:  
+Substituir controles manuais por um sistema simples, onde a equipe de estoque consegue:
 
 - cadastrar e consultar os produtos acabados e seus saldos;
 - registrar entradas e saídas de estoque, com atualização automática do saldo;
 - identificar rapidamente os itens abaixo do estoque mínimo;
 - acompanhar relatórios mensais de movimentação e exportá-los em planilha.
-  
 
 ## Integrantes
 
@@ -34,6 +42,8 @@ Substituir controles manuais por um sistema simples, onde a equipe de estoque co
 ```
 riopedrense-estoque/
 ├── index.html              redireciona para a tela de login
+├── .env.example            modelo dos dados de conexão com o banco
+├── .htaccess               bloqueia o acesso ao .env pelo navegador
 ├── frontend/
 │   ├── index.html          login
 │   ├── painel.html         visão geral
@@ -79,13 +89,16 @@ riopedrense-estoque/
 
 ### Configuração
 
-Os dados de acesso ao banco ficam em `backend/conexao.php`. O padrão do XAMPP é usuário `root` sem senha:
+Os dados de acesso ao banco ficam no arquivo `.env`, na raiz do projeto. Se ele não existir, o sistema usa o `.env.example`, que já vem com o padrão do XAMPP (usuário `root` sem senha):
 
-```php
-$conexao = mysqli_connect("localhost", "root", "", "riopedrense_estoque");
+```
+DB_HOST=localhost
+DB_NAME=riopedrense_estoque
+DB_USER=root
+DB_PASS=
 ```
 
-Se o seu MySQL usar outra senha ou porta, altere essa linha.
+Para usar outro banco (por exemplo, em uma hospedagem), crie um arquivo `.env` com os mesmos campos e os seus dados. O `.env` não vai para o GitHub e é bloqueado pelo `.htaccess`.
 
 ## Principais funcionalidades
 
@@ -129,5 +142,3 @@ Se o seu MySQL usar outra senha ou porta, altere essa linha.
 
 ### Relatórios
 ![Relatórios](docs/prints/06-relatorios.png)
-
-
