@@ -1,6 +1,6 @@
 # Controle de Estoque — Metalúrgica Riopedrense
 
-Sistema web de controle de estoque de **produto acabado** desenvolvido para a Metalúrgica Riopedrense (fabricante de grelhas para moinho), como projeto do **PIC I — Projeto Integrador** do curso de Ciência da Computação.
+Sistema web de controle de estoque de **produto acabado** desenvolvido para a Metalúrgica Riopedrense (fabricante de grelhas para moinho), como projeto do **PIC I — Projeto Integrador** do curso de Ciência da Computação.                            
                                                                                                                                             
 ## Objetivo
 
