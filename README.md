@@ -10,6 +10,7 @@ Substituir controles manuais por um sistema simples, onde a equipe de estoque co
 - registrar entradas e saídas de estoque, com atualização automática do saldo;
 - identificar rapidamente os itens abaixo do estoque mínimo;
 - acompanhar relatórios mensais de movimentação e exportá-los em planilha.
+  
 
 ## Integrantes
 
