@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos | Metalúrgica Riopedrense</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sistema">
+        <aside class="menu-lateral">
+            <div class="marca">
+                <img src="img/logo-icone.png" alt="Metalúrgica Riopedrense">
+                <div>
+                    <strong>Riopedrense</strong>
+                    <small>Controle de estoque</small>
+                </div>
+            </div>
+            <p class="menu-titulo">MENU PRINCIPAL</p>
+            <nav>
+                <a href="painel.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Visão geral</a>
+                <a href="produtos.html" class="ativo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg>Produtos</a>
+                <a href="movimentacao.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>Movimentações</a>
+                <a href="relatorios.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-5 4 3 5-7"/></svg>Relatórios</a>
+            </nav>
+            <a href="../backend/sair.php" class="perfil" title="Sair do sistema">
+                <span class="avatar">MR</span>
+                <div>
+                    <strong id="usuario-nome">Equipe de estoque</strong>
+                    <small id="usuario-perfil">Perfil administrativo</small>
+                </div>
+            </a>
+        </aside>
+
+        <main class="principal">
+            <header class="topo">
+                <div class="caminho">Estoque <span>/</span> <strong>Produtos</strong></div>
+                <div class="topo-direita">
+                    <span id="data-hoje"></span>
+                    <span class="separador"></span>
+                    <button class="sino" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+                    <a href="../backend/sair.php" class="avatar" title="Sair do sistema">MR</a>
+                </div>
+            </header>
+
+            <section class="conteudo">
+                <div class="cabecalho">
+                    <div>
+                        <h1>Produtos acabados</h1>
+                        <p>Consulte saldos e acompanhe os itens cadastrados.</p>
+                    </div>
+                    <button class="botao" type="button" onclick="abrirJanela()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> Novo produto</button>
+                </div>
+
+                <div class="cartao barra-busca">
+                    <div class="busca">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="text" id="busca" placeholder="Buscar produto ou código...">
+                    </div>
+                    <div class="acoes">
+                        <button class="botao-secundario" type="button" id="botao-filtrar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg> Filtrar</button>
+                        <select class="botao-secundario" id="filtro-categoria">
+                            <option value="">Categoria</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="cartao tabela-cartao produtos-tabela" style="margin-top: 0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Código</th>
+                                <th>Categoria</th>
+                                <th>Saldo atual</th>
+                                <th>Estoque mínimo</th>
+                                <th class="direita">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-produtos"></tbody>
+                    </table>
+                    <div class="paginacao">
+                        <span id="texto-paginacao"></span>
+                        <div class="paginas" id="paginas"></div>
+                    </div>
+                </div>
+
+                <div class="resumo-cards">
+                    <div class="cartao">
+                        <small>Itens com saldo disponível</small>
+                        <strong id="resumo-disponiveis">0 produtos</strong>
+                    </div>
+                    <div class="cartao">
+                        <small>Itens em atenção</small>
+                        <strong id="resumo-atencao" class="texto-laranja">0 produtos</strong>
+                    </div>
+                    <div class="cartao">
+                        <small>Total em estoque</small>
+                        <strong id="resumo-total">0 unidades</strong>
+                    </div>
+                </div>
+
+                <div class="janela-fundo" id="janela">
+                    <form class="cartao janela" id="form-produto">
+                        <h2 id="janela-titulo">Novo produto</h2>
+                        <p class="descricao">Preencha os dados do produto acabado.</p>
+                        <input type="hidden" name="id" id="produto-id">
+                        <div class="campos">
+                            <div class="inteiro">
+                                <label for="produto-nome">Nome do produto *</label>
+                                <input type="text" name="nome" id="produto-nome" required>
+                            </div>
+                            <div>
+                                <label for="produto-codigo">Código *</label>
+                                <input type="text" name="codigo" id="produto-codigo" required>
+                            </div>
+                            <div>
+                                <label for="produto-categoria">Categoria *</label>
+                                <input type="text" name="categoria" id="produto-categoria" list="lista-categorias" required>
+                                <datalist id="lista-categorias"></datalist>
+                            </div>
+                            <div>
+                                <label for="produto-saldo">Saldo atual</label>
+                                <input type="number" name="saldo" id="produto-saldo" min="0" value="0">
+                            </div>
+                            <div>
+                                <label for="produto-minimo">Estoque mínimo</label>
+                                <input type="number" name="estoque_minimo" id="produto-minimo" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="formulario-rodape">
+                            <p class="erro" id="erro-produto"></p>
+                            <button class="botao-secundario botao-perigo" type="button" id="botao-excluir" onclick="excluirProduto()">Excluir</button>
+                            <button class="botao-secundario" type="button" onclick="fecharJanela()">Cancelar</button>
+                            <button class="botao" type="submit">Salvar produto</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/comum.js"></script>
+    <script src="js/produtos.js"></script>
+</body>
+</html>

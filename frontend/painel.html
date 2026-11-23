@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão geral | Metalúrgica Riopedrense</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sistema">
+        <aside class="menu-lateral">
+            <div class="marca">
+                <img src="img/logo-icone.png" alt="Metalúrgica Riopedrense">
+                <div>
+                    <strong>Riopedrense</strong>
+                    <small>Controle de estoque</small>
+                </div>
+            </div>
+            <p class="menu-titulo">MENU PRINCIPAL</p>
+            <nav>
+                <a href="painel.html" class="ativo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Visão geral</a>
+                <a href="produtos.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg>Produtos</a>
+                <a href="movimentacao.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>Movimentações</a>
+                <a href="relatorios.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-5 4 3 5-7"/></svg>Relatórios</a>
+            </nav>
+            <a href="../backend/sair.php" class="perfil" title="Sair do sistema">
+                <span class="avatar">MR</span>
+                <div>
+                    <strong id="usuario-nome">Equipe de estoque</strong>
+                    <small id="usuario-perfil">Perfil administrativo</small>
+                </div>
+            </a>
+        </aside>
+
+        <main class="principal">
+            <header class="topo">
+                <div class="caminho">Estoque <span>/</span> <strong>Visão geral</strong></div>
+                <div class="topo-direita">
+                    <span id="data-hoje"></span>
+                    <span class="separador"></span>
+                    <button class="sino" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+                    <a href="../backend/sair.php" class="avatar" title="Sair do sistema">MR</a>
+                </div>
+            </header>
+
+            <section class="conteudo">
+                <div class="cabecalho">
+                    <div>
+                        <h1>Visão geral</h1>
+                        <p>Acompanhe o estoque de produto acabado em um só lugar.</p>
+                    </div>
+                    <div class="acoes">
+                        <button class="botao-secundario" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg> Este mês</button>
+                        <a href="movimentacao.html" class="botao"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> Nova movimentação</a>
+                    </div>
+                </div>
+
+                <div class="indicadores">
+                    <div class="cartao indicador">
+                        <div class="indicador-topo">Produtos cadastrados<span class="icone icone-azul"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg></span></div>
+                        <strong id="total-produtos">0</strong>
+                        <small>Catálogo de produto acabado</small>
+                    </div>
+                    <div class="cartao indicador">
+                        <div class="indicador-topo">Unidades em estoque<span class="icone icone-verde"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span></div>
+                        <strong id="total-unidades">0</strong>
+                        <small>Disponíveis para expedição</small>
+                    </div>
+                    <div class="cartao indicador">
+                        <div class="indicador-topo">Saídas no mês<span class="icone icone-azul"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17-5-5 5-5"/><path d="M5 12h12"/></svg></span></div>
+                        <strong id="total-saidas">0</strong>
+                        <small>Movimentações registradas</small>
+                    </div>
+                    <div class="cartao indicador">
+                        <div class="indicador-topo">Itens em atenção<span class="icone icone-laranja"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span></div>
+                        <strong id="total-atencao" class="texto-laranja">0</strong>
+                        <small>Abaixo do estoque mínimo</small>
+                    </div>
+                </div>
+
+                <div class="grade">
+                    <div class="cartao bloco">
+                        <div class="bloco-topo">
+                            <div>
+                                <h2>Saídas na última semana</h2>
+                                <p class="descricao">Quantidade de unidades por dia</p>
+                            </div>
+                            <span class="filtro-pequeno">Últimos 7 dias</span>
+                        </div>
+                        <div class="barras" id="grafico-barras"></div>
+                        <div class="dias" id="grafico-dias"></div>
+                    </div>
+
+                    <div class="cartao bloco">
+                        <h2>Atenção ao estoque</h2>
+                        <p class="descricao">Produtos próximos do limite mínimo</p>
+                        <div id="lista-alertas"></div>
+                    </div>
+                </div>
+
+                <div class="cartao tabela-cartao">
+                    <div class="tabela-titulo">
+                        <h2>Últimas movimentações</h2>
+                        <a href="historico.html">Ver todas →</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Tipo</th>
+                                <th>Quantidade</th>
+                                <th>Responsável</th>
+                                <th>Data</th>
+                                <th class="direita">Registro</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-ultimas"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/comum.js"></script>
+    <script src="js/painel.js"></script>
+</body>
+</html>

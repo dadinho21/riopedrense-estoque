@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Metalúrgica Riopedrense</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login">
+        <section class="login-esquerda">
+            <span class="circulo-grande"></span>
+            <span class="circulo-linha"></span>
+            <span class="retangulo"></span>
+
+            <div class="login-logo">
+                <img src="img/logo.png" alt="Metalúrgica Riopedrense - 55 anos">
+            </div>
+
+            <div class="login-textos">
+                <p class="login-etiqueta">GESTÃO DE PRODUTO ACABADO</p>
+                <h1>Estoque sob<br>controle, todos<br>os dias.</h1>
+                <p>Uma visão clara dos produtos, entradas e saídas da Metalúrgica Riopedrense.</p>
+            </div>
+
+            <p class="login-rodape">PROTÓTIPO VISUAL · PROJETO INTEGRADOR</p>
+        </section>
+
+        <section class="login-direita">
+            <form class="login-form" id="form-login">
+                <span class="selo"><span></span>AMBIENTE INTERNO</span>
+                <h2>Bem-vindo de volta</h2>
+                <p class="subtitulo">Entre com suas credenciais para acessar o painel.</p>
+
+                <label for="email">E-mail corporativo</label>
+                <input type="email" name="email" id="email" placeholder="seu.email@riopedrense.com.br" required>
+
+                <label for="senha">Senha</label>
+                <div class="campo-senha">
+                    <input type="password" name="senha" id="senha" placeholder="••••••••••••" required>
+                    <button type="button" id="mostrar-senha">Mostrar</button>
+                </div>
+
+                <div class="login-opcoes">
+                    <label><input type="checkbox"> Manter conectado</label>
+                    <a href="#" id="esqueceu">Esqueceu a senha?</a>
+                </div>
+
+                <button class="botao-entrar" type="submit">
+                    Entrar no sistema
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <p class="erro" id="erro-login"></p>
+
+                <p class="login-aviso">Acesso exclusivo para colaboradores autorizados</p>
+            </form>
+        </section>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

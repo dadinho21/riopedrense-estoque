@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico | Metalúrgica Riopedrense</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sistema">
+        <aside class="menu-lateral">
+            <div class="marca">
+                <img src="img/logo-icone.png" alt="Metalúrgica Riopedrense">
+                <div>
+                    <strong>Riopedrense</strong>
+                    <small>Controle de estoque</small>
+                </div>
+            </div>
+            <p class="menu-titulo">MENU PRINCIPAL</p>
+            <nav>
+                <a href="painel.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Visão geral</a>
+                <a href="produtos.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg>Produtos</a>
+                <a href="movimentacao.html" class="ativo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>Movimentações</a>
+                <a href="relatorios.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-5 4 3 5-7"/></svg>Relatórios</a>
+            </nav>
+            <a href="../backend/sair.php" class="perfil" title="Sair do sistema">
+                <span class="avatar">MR</span>
+                <div>
+                    <strong id="usuario-nome">Equipe de estoque</strong>
+                    <small id="usuario-perfil">Perfil administrativo</small>
+                </div>
+            </a>
+        </aside>
+
+        <main class="principal">
+            <header class="topo">
+                <div class="caminho">Estoque <span>/</span> <strong>Movimentações</strong></div>
+                <div class="topo-direita">
+                    <span id="data-hoje"></span>
+                    <span class="separador"></span>
+                    <button class="sino" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+                    <a href="../backend/sair.php" class="avatar" title="Sair do sistema">MR</a>
+                </div>
+            </header>
+
+            <section class="conteudo">
+                <div class="cabecalho">
+                    <div>
+                        <h1>Histórico de movimentações</h1>
+                        <p>Consulte todas as entradas e saídas registradas.</p>
+                    </div>
+                    <a href="movimentacao.html" class="botao"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> Nova movimentação</a>
+                </div>
+
+                <div class="cartao tabela-cartao" style="margin-top: 0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Tipo</th>
+                                <th>Quantidade</th>
+                                <th>Destino / origem</th>
+                                <th>Responsável</th>
+                                <th>Data</th>
+                                <th>Registro</th>
+                                <th class="direita">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-historico"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/comum.js"></script>
+    <script src="js/historico.js"></script>
+</body>
+</html>
